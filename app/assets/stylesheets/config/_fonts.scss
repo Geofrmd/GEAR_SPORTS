@@ -1,9 +1,23 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
+@import "config/colors";
+
 // Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$headers-font: "Roboto", "Roboto", "sans-serif";
+
+$h2-size: 15px;
+$h2-weight: 600;
+$h2-color: $noir;
+
+$h3-size: 15px;
+$h3-weight: 400;
+$h3-color: #717171;
+
+$h4-size: 14px;
+$h4-weight: 600;
+$h4-color: $vert;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
