@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   # default url options
-  config.action_mailer.default_url_options = { host: 'scalingo', "https://airbnb-geofrmd.osc-fr1.scalingo.io" }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
