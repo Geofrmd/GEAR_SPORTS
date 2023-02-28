@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :offers, only: [:index, :new, :create]
+  resources :offers, only: [:index, :new, :show, :create]
   devise_for :users
   root to: "pages#home"
 
