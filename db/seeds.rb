@@ -37,4 +37,5 @@ Offer.create(user: user1, title: category.sample, description: "Lorem ipsum dolo
 Offer.create(user: user1, title: category.sample, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut fringilla neque. Sed fringilla vitae mi in malesuada. Integer vulputate arcu et arcu porttitor viverra.", price: rand(15..100), location: cities.sample, picture_url: "https://loremflickr.com/640/480/sports,https://loremflickr.com/640/480/sports,https://loremflickr.com/640/480/sports,https://loremflickr.com/640/480/sports", sport_category: category.sample)
 Offer.create(user: user1, title: category.sample, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut fringilla neque. Sed fringilla vitae mi in malesuada. Integer vulputate arcu et arcu porttitor viverra.", price: rand(15..100), location: cities.sample, picture_url: "https://loremflickr.com/640/480/sports,https://loremflickr.com/640/480/sports,https://loremflickr.com/640/480/sports,https://loremflickr.com/640/480/sports", sport_category: category.sample)
 
+
 puts 'Finished!'
