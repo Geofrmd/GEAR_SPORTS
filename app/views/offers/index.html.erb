@@ -1,17 +1,21 @@
 <div class="container">
 
-  <% @offers.each do |offer| %>
-    <div class="card-offer">
-      <img src="<% offer.picture_url %>"/>
-      <div class="card-offer-infos">
-        <div>
-          <h2><%= title = offer.title %></h2>
-          <p><%= offer.location %></p>
+  <div class="cards">
+
+    <% @offers.each do |offer| %>
+      <div class="card-offer">
+        <img src="<% offer.picture_url %>"/>
+        <div class="card-offer-infos">
+          <div>
+            <h2><%= title = offer.title %></h2>
+            <p><%= offer.location %></p>
+          </div>
+          <h2 class="card-offer-pricing"><%= offer.price %> € per day</h2>
+          <i class="fa-duotone fa-heart card-heart"></i>
         </div>
-        <h2 class="card-offer-pricing"><%= offer.price %> € per day</h2>
-        <i class="fa-duotone fa-heart card-heart"></i>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+
+  </div>
 
 </div>
