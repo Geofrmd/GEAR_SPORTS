@@ -9,7 +9,7 @@
   </div>
   <div class="container">
     <div class="d-flex justify-content-between">
-      <div class="d-flex justify-content-betwen" style="width: 700px">
+      <div class="d-flex justify-content-betwen border-bottom border-primary pb-4" style="width: 700px">
           <div style="width: 600px" >
               <h2 class="border-bottom border-primary pb-4"><%=@offer.sport_category.capitalize%></h2>
               <h3 class="mt-4">Description</h3>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div>
-      <h3>Où se situe le matériel</h3>
+      <h3 class="mt-4">Où se situe le matériel</h3>
       <p><%= @offer.location %></p>
       <%=image_tag "map.png", class:"img-map" %>
     </div>
