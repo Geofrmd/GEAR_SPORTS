@@ -1,13 +1,14 @@
 .card-offer {
   overflow: hidden;
-  background: beige;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: $white;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
 }
 
 .card-offer > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+  border-radius: 6px;
 }
 
 .card-offer h2 {
@@ -29,6 +30,26 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  text-decoration: none;
+}
+
+.card-offer-infos a {
+  text-decoration: none;
+  font-size: $h2-size;
+  font-weight: $h2-weight;
+  color: $h2-color;
+}
+
+.card-offer-infos h3 {
+  font-size: $h3-size;
+  font-weight: $h3-weight;
+  color: $h3-color;
+}
+
+.card-offer-infos h4 {
+  font-size: $h4-size;
+  font-weight: $h4-weight;
+  color: $h4-color;
 }
 
 .card-heart {
@@ -36,4 +57,5 @@
   right: 16px;
   top: -20px;
   width: 40px;
+  color: $terracotta;
 }
