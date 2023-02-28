@@ -4,6 +4,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def show
+    @booking = Booking.last
+    @offer = Offer.find(@booking.offer_id)
+    @booking.user = current_user
+    authorize @booking
+  end
+
   def create
     @offer = Offer.find(params[:offer_id])
     @booking = Booking.new(booking_params)
