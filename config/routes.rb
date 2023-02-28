@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :offers, only: [:index, :new, :show, :create]
+  resources :offers, only: %i[new show create] do
+    resources :bookings, only: %i[create]
+  end
+
   devise_for :users
-  root to: "pages#home"
+  root to: "offers#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
