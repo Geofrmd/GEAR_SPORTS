@@ -1,0 +1,22 @@
+.form {
+box-sizing: border-box;
+width: 389px;
+height: 319px;
+left: 1203px;
+top: 689px;
+
+background: rgb(255, 255, 255);
+border: 1px solid #DDDDDD;
+box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+border-radius: 12px;
+}
+
+.form-btn {
+  margin-left: 70px;
+  border-radius: 5px;
+  margin-top: 13px;
+}
+
+.form h5 {
+  color: $vert;
+}
