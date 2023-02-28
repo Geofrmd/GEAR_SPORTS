@@ -3,6 +3,11 @@ class OffersController < ApplicationController
     @offers = Offer.all
   end
 
+  def show
+    @offers = Offer.find(params[:id])
+    authorize @offer
+  end
+
   def new
     @offer = Offer.new
   end
