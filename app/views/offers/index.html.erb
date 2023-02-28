@@ -4,14 +4,14 @@
 
     <% @offers.each do |offer| %>
       <div class="card-offer">
-        <img src="<% offer.picture_url %>"/>
+        <%= image_tag (offer.picture_url.split(",").first) %>
         <div class="card-offer-infos">
           <div>
             <h2><%= link_to offer.title, offer_path(offer)  %></h2>
-            <p><%= offer.location %></p>
+            <h3><%= offer.location %></h3>
+            <h4 class="card-offer-pricing"><%= offer.price %> € / day</h4>
+            <i class="far fa-heart card-heart"></i>
           </div>
-          <h2 class="card-offer-pricing"><%= offer.price %> € per day</h2>
-          <i class="fa-duotone fa-heart card-heart"></i>
         </div>
       </div>
     <% end %>

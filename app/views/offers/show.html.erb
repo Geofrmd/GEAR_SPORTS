@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
   <h2><%= @offer.title %>-<%=@offer.location %></h2>
   <div>
   <h3>Sport category</h3>
@@ -8,13 +9,42 @@
   <h3>Description</h3>
   <p><%=@offer.description%></p>
   </div>
+=======
+  <h2 class="my-5"><%= @offer.title.capitalize %> - <%=@offer.location %></h2>
+</div>
+>>>>>>> 02ee49b80af7f9b5908d115df6e7bde9476d5444
 
-  <div>
-    <h3>Ajoutez des dates pour voir le prix</h3>
-    <%= simple_form_for [@offer, @booking] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.submit "Vérifier la disponibilité", class: "btn btn-primary" %>
+  <div class="d-flex justify-content-around my-5">
+    <%@offer.picture_url.split(",").each do |picture| %>
+      <img class="img-product" src=<%=picture%>  alt="img-product">
     <% end %>
   </div>
-</div>
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-betwen border-bottom border-primary pb-4" style="width: 700px">
+          <div style="width: 600px" >
+              <h2 class="border-bottom border-primary pb-4"><%=@offer.sport_category.capitalize%></h2>
+              <h3 class="mt-4">Description</h3>
+              <p><%=@offer.description%></p>
+          </div>
+          <div>
+              <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+          </div>
+      </div>
+      <div class ="form p-3">
+          <h5 class="my-3 fw-bolder">Ajoutez des dates pour voir le prix</h5>
+         <%= simple_form_for [@offer, @booking] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit "Vérifier la disponibilité", class: "btn btn-primary form-btn" %>
+          <% end %>
+      </div>
+    </div>
+    <div>
+      <h3 class="mt-4">Où se situe le matériel</h3>
+      <p><%= @offer.location %></p>
+      <%=image_tag "map.png", class:"img-map" %>
+    </div>
+
+
+  </div>
