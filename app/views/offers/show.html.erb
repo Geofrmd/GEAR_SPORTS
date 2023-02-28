@@ -1,5 +1,5 @@
 <div class="container">
-  <h2><%= @offer.title - @offer.location %></h2>
+  <h2><%= @offer.title %>-<%=@offer.location %></h2>
   <div>
   <p>Sport category</p>
   <p><%=@offer.sport_category%></p>
@@ -13,7 +13,7 @@
     <h3>Ajoutez des dates pour voir le prix</h3>
     <%= simple_form_for [@offer, @booking] do |f| %>
     <%= f.input :start_date %>
-    <%= f.input :end_start %>
+    <%= f.input :end_date %>
     <%= f.submit "Vérifier la disponibilité", class: "btn btn-primary" %>
     <% end %>
   </div>
