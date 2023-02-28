@@ -4,7 +4,7 @@
 
     <% @offers.each do |offer| %>
       <div class="card-offer">
-        <img src=<% offer.picture_url.split(",").first %> />
+        <%= image_tag (offer.picture_url.split(",").first) %>
         <div class="card-offer-infos">
           <div>
             <h2><%= link_to offer.title, offer_path(offer)  %></h2>
