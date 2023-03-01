@@ -1,6 +1,8 @@
 class OffersController < ApplicationController
   def index
-    if params[:query].present?
+    if params[:title].present?
+      @offers = Offer.where("title LIKE '%#{params[:title]}%'")
+    elsif params[:query].present?
       sql_query = "title ILIKE :query OR location ILIKE :query"
       @offers = Offer.where(sql_query, query: "%#{params[:query]}%")
     else
@@ -11,6 +13,7 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @booking = Booking.new
+    @markers = [{lat: @offer.latitude, lng: @offer.longitude}]
     authorize @offer
   end
 

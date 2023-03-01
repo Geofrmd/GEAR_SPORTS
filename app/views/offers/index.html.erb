@@ -1,4 +1,66 @@
 <div class="container">
+  <div class="icon-nav mt-4 mb-5 d-flex justify-content-between">
+    <div class="d-flex align-items-start flex-column link">
+        <%= link_to root_path(title: "snowboard"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-solid fa-person-snowboarding mb-2"></i>
+          <p>Snowboard</p>
+        <% end %>
+    </div>
+    <div class="d-flex align-items-start flex-column">
+        <%= link_to root_path(title: "voile"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-sharp fa-solid fa-sailboat mb-2"></i>
+          <p>Voile</p>
+        <% end %>
+    </div>
+    <div class="d-flex align-items-start flex-column">
+        <%= link_to root_path(title: "paddle"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-solid fa-water mb-2"></i>
+          <p>Paddle</p>
+        <% end %>
+    </div>
+    <div class="d-flex align-items-start flex-column">
+        <%= link_to root_path(title: "kitesurf"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-solid fa-person-walking mb-2"></i>
+          <p>Kitesurf</p>
+        <% end %>
+    </div>
+    <div class="d-flex align-items-start flex-column">
+        <%= link_to root_path(title: "Vélo"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-sharp fa-solid fa-bicycle mb-2"></i>
+          <p>Vélo</p>
+        <% end %>
+    </div>
+    <div class="d-flex align-items-start flex-column">
+        <%= link_to root_path(title: "skateboard"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-solid fa-person-snowboarding mb-2"></i>
+          <p>Skateboard</p>
+        <% end %>
+    </div>
+    <div class="d-flex align-items-start flex-column">
+        <%= link_to root_path(title: "ski"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-solid fa-person-skiing mb-2"></i>
+          <p>Ski</p>
+        <% end %>
+    </div>
+    <div class="d-flex align-items-start flex-column">
+        <%= link_to root_path(title: "roller"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-solid fa-person-snowboarding mb-2"></i>
+          <p>Roller</p>
+        <% end %>
+    </div>
+    <div class="d-flex align-items-start flex-column">
+        <%= link_to root_path(title: "tennis"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-sharp fa-solid fa-table-tennis-paddle-ball mb-2"></i>
+          <p>Tennis</p>
+        <% end %>
+    </div>
+    <div class="d-flex align-items-start flex-column">
+        <%= link_to root_path(title: "surf"), class:"text-decoration-none text-center link" do %>
+          <i class="fa-solid fa-water-ladder mb-2"></i>
+          <p>Surf</p>
+        <% end %>
+    </div>
+  </div>
 
   <div class="cards">
 
@@ -7,7 +69,7 @@
         <%= image_tag (offer.picture_url.split(",").first) %>
         <div class="card-offer-infos">
           <div>
-            <h2><%= link_to offer.title, offer_path(offer)  %></h2>
+            <h2><%= link_to offer.title.capitalize, offer_path(offer)  %></h2>
             <h3><%= offer.location %></h3>
             <h4 class="card-offer-pricing"><%= offer.price %> € / day</h4>
             <i class="far fa-heart card-heart"></i>
@@ -15,7 +77,6 @@
         </div>
       </div>
     <% end %>
-
   </div>
 
 </div>
