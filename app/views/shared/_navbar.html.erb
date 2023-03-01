@@ -7,7 +7,7 @@
   <div class="container-fluid hello">
     <form class="d-flex me-5" role="search">
     <%= form_with url: root_path, method: :get, class: "d-flex me-2 " do %>
-      <%= text_field_tag :query, params[:query] %>
+      <%= text_field_tag :query, params[:query], placeholder: "Enter a sport..." %>
       <button class="btn btn-outline-success ms-2" type="submit">Search</button>
       <% end %>
     </form>
