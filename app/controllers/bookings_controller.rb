@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.last
+    @booking = Booking.find(params[:id])
     @offer = Offer.find(@booking.offer_id)
     @booking.user = current_user
     authorize @booking
