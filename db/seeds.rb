@@ -9,8 +9,9 @@
 # AJOUT DES SEEDS
 
 puts "Cleaning database..."
-User.destroy_all
+Booking.destroy_all
 Offer.destroy_all
+User.destroy_all
 
 puts 'Creating 2 fake users...'
 
