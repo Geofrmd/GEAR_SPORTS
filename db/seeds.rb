@@ -9,8 +9,9 @@
 # AJOUT DES SEEDS
 
 puts "Cleaning database..."
-User.destroy_all
+Booking.destroy_all
 Offer.destroy_all
+User.destroy_all
 
 puts 'Creating 2 fake users...'
 
@@ -18,7 +19,7 @@ user1 = User.create(first_name: "John", last_name: "Smith", email: 'jsmith@gmail
 user2 = User.create(first_name: "Fred", last_name: "Mercury", email: 'fmercury@gmail.com', password: '123456')
 
 puts 'Creating 15 fake offers...'
-category = ["kitesurf", "paddle", "planche à voile","planche de surf", "vélo", "roller", "ski", "snowboard", "skateboard", "raquette de tennis"]
+category = ["kitesurf", "paddle", "planche à voile","planche de surf", "Vélo", "roller", "ski", "snowboard", "skateboard", "raquette de tennis"]
 cities = ["Paris", "Marseille", "Lyon", "Lille", "Rouen", "Bordeaux", "Strasbourg", "Rennes", "Montpellier", "Nantes", "Angers"]
 
 Offer.create(user: user1, title: "Kite surf pack complet", description: "Je loue mon kite surf. Le matériel est complet, il contient: une planche 150 cm / 42 cm Fanatic, les barres, l'aile 13m2 Trust, le gonfleur, un leash", price: 50, location: "Hyères", picture_url: "https://www.thecornershop.fr/modules/wbimgoffer/views/img/f4c2efdbc4e22283f0c73dfb40e117ef81d63cb0_pack-reedin-2022.jpg,https://www.gong-galaxy.com/wp-content/uploads/2023/01/12_1500-221220-GONGKITE-CATCH-00017-768x512.jpg,https://www.kitemana.fr/_images/h537/reedin-kiteboarding-kevpro-2021-kiteboard-287557.jpg,https://www.fun-diffusion.com/3961-thickbox_default/pompe-gonflage-aile-wing-wingfoil-duotone-manometre.jpg", sport_category: "kitesurf")
