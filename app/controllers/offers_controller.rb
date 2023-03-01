@@ -1,6 +1,10 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.all
+    if params[:title].present?
+      @offers = Offer.where("title LIKE '%#{params[:title]}%'")
+    else
+      @offers = Offer.all
+    end
   end
 
   def show
