@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   # add other pages to "only" list
 
   def home
+    @offers = Offer.last(3)
   end
 end
