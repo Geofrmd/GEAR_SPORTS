@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :offers, only: %i[new show create] do
+  resources :offers, only: %i[index new show create] do
     resources :bookings, only: %i[create show new]
   end
   resources :bookings, only: %i[]  do
