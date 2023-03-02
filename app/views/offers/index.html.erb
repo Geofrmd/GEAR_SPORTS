@@ -64,16 +64,20 @@
   <div class="cards">
 
     <% @offers.each do |offer| %>
-      <div class="card-offer">
-        <%= image_tag (offer.picture_url.split(",").first) %>
-        <div class="card-offer-infos">
-          <div>
-            <h2><%= link_to offer.title.capitalize, offer_path(offer)  %></h2>
-            <h3><%= offer.location %></h3>
-            <h4 class="card-offer-pricing"><%= offer.price %> € / day</h4>
-            <i class="far fa-heart card-heart"></i>
+      <div class="card-offer-with-heart">
+        <a href=""><i class="far fa-heart card-heart"></i></a>
+        <%= link_to offer_path(offer) do %>
+          <div class="card-offer">
+              <%= image_tag (offer.picture_url.split(",").first) %>
+              <div class="card-offer-infos">
+                <div>
+                  <h2><%= offer.title %></h2>
+                  <h3><%= offer.location %></h3>
+                  <h4 class="card-offer-pricing"><%= offer.price %> € / day</h4>
+                </div>
+              </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
