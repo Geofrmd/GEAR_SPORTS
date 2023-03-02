@@ -4,9 +4,15 @@
 
 
     <div class="d-flex justify-content-around my-5">
-      <%@offer.picture_url.split(",").each do |picture| %>
-        <img class="img-product" src=<%=picture%>  alt="img-product">
-      <% end %>
+          <% if @offer.picture_seed %>
+            <% @offer.picture_seed.split(",").each do |picture| %>
+              <img class="img-product" src=<%=picture%>  alt="img-product">
+            <% end %>
+          <% else %>
+            <% @offer.picture_url.each do |offer| %>
+              <%= cl_image_tag(offer.key) %>
+            <% end %>
+          <% end %>
     </div>
   </div>
   <div class="container pb-5">
