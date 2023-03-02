@@ -21,11 +21,19 @@
       </div>
       <div class ="form p-3">
           <h5 class="my-3 fw-bolder">Ajoutez des dates pour voir le prix</h5>
-         <%= simple_form_for [@offer, @booking] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-          <%= f.submit "Vérifier la disponibilité", class: "btn btn-primary form-btn" %>
+          <%= form_with url: new_offer_booking_path(@offer), method: :get, class: "d-flex" do %>
+            <%= date_field_tag :start_date,
+              params[:start_date] || Date.today,
+              class: "form-control"
+            %>
+            <%= date_field_tag :end_date,
+              params[:end_date] || Date.today,
+              class: "form-control"
+            %>
+            <%= submit_tag "Vérifier la disponibilité", class: "btn btn-primary form-btn" %>
           <% end %>
+
+
       </div>
     </div>
     <div>

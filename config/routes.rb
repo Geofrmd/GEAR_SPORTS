@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :offers, only: %i[new show create] do
-    resources :bookings, only: %i[create show]
+    resources :bookings, only: %i[create show new]
   end
 
   devise_for :users
