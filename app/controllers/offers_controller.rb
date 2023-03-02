@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
   def index
     if params[:title].present?
-      @offers = Offer.where("title LIKE '%#{params[:title]}%'")
+      @offers = Offer.where("title ILIKE '%#{params[:title]}%'")
     elsif params[:query].present?
       sql_query = "title ILIKE :query OR location ILIKE :query"
       @offers = Offer.where(sql_query, query: "%#{params[:query]}%")
