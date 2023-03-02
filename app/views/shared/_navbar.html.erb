@@ -1,27 +1,37 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "gear-sport-logo.png" %>
 >>>>>>> 02ee49b80af7f9b5908d115df6e7bde9476d5444
     <% end %>
+<<<<<<< HEAD
     <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
+=======
+    <nav class="navbar">
+  <div class="container-fluid hello">
+    <form class="d-flex me-5" role="search">
+    <%= form_with url: root_path, method: :get, class: "d-flex me-2 " do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Enter a sport..." %>
+      <button class="btn btn-outline-success ms-2" type="submit">Search</button>
+      <% end %>
+>>>>>>> dcdb400d311449acf468e5a9222937ca5f9ed0bd
     </form>
   </div>
 </nav>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <%= image_tag "https://avatars.githubusercontent.com/u/122464388?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My profil", root_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
@@ -33,4 +43,5 @@
       </ul>
     </div>
   </div>
+</div>
 </div>

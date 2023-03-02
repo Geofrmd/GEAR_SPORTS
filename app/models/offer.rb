@@ -8,4 +8,6 @@ class Offer < ApplicationRecord
   validates :location, presence: true
   validates :picture_url, presence: true
   validates :sport_category, presence: true, inclusion: { in: CATEGORY, message: "Please select existing sport category"}
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end

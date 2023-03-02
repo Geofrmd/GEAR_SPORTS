@@ -7,7 +7,7 @@
     <h2>Sign in</h2>
 
     <p>If you don't have an account register</p>
-    <p>You can <strong>Register here!</strong></p>
+    <p>You can <strong><%= link_to "Register here!", new_user_registration_path %></strong></p>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
