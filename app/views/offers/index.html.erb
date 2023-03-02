@@ -65,7 +65,7 @@
     <% @offers.each do |offer| %>
       <div class="card-offer-with-heart">
         <a href=""><i class="far fa-heart card-heart"></i></a>
-        <%= link_to offer_path(offer) do %>
+        <%= link_to offer_path(offer), class:"text-decoration-none" do %>
           <div class="card-offer">
               <%= offer.picture_seed ? image_tag(offer.picture_seed.split(",").first) : cl_image_tag(offer.picture_url.first.key) %>
               <div class="card-offer-infos">
