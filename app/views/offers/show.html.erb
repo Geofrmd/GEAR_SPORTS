@@ -1,8 +1,6 @@
 
 <div class="container">
   <h2 class="my-5 pt-5"><%= @offer.title.capitalize %> - <%=@offer.location %></h2>
-
-
     <div class="d-flex justify-content-around my-5">
       <%@offer.picture_url.split(",").each do |picture| %>
         <img class="img-product" src=<%=picture%>  alt="img-product">
@@ -34,8 +32,6 @@
             %>
             <%= submit_tag "Vérifier la disponibilité", class: "btn btn-primary form-btn" %>
           <% end %>
-
-
       </div>
     </div>
     <div>
