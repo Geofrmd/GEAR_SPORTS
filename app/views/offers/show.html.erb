@@ -8,7 +8,7 @@
             <% end %>
           <% else %>
             <% @offer.picture_url.each do |offer| %>
-              <%= cl_image_tag(offer.key) %>
+              <%= cl_image_tag(offer.key, class: "img-product") %>
             <% end %>
           <% end %>
     </div>
