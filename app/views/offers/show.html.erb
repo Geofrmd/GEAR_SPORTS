@@ -1,18 +1,6 @@
 <div class="container">
-<<<<<<< HEAD
-  <h2><%= @offer.title %>-<%=@offer.location %></h2>
-  <div>
-  <h3>Sport category</h3>
-  <p><%=@offer.sport_category%></p>
-  </div>
-  <div>
-  <h3>Description</h3>
-  <p><%=@offer.description%></p>
-  </div>
-=======
   <h2 class="my-5"><%= @offer.title.capitalize %> - <%=@offer.location %></h2>
 </div>
->>>>>>> 02ee49b80af7f9b5908d115df6e7bde9476d5444
 
   <div class="d-flex justify-content-around my-5">
     <%@offer.picture_url.split(",").each do |picture| %>
