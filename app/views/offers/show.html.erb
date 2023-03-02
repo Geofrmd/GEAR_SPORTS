@@ -1,13 +1,15 @@
-<div class="container">
-  <h2 class="my-5"><%= @offer.title.capitalize %> - <%=@offer.location %></h2>
-</div>
 
-  <div class="d-flex justify-content-around my-5">
-    <%@offer.picture_url.split(",").each do |picture| %>
-      <img class="img-product" src=<%=picture%>  alt="img-product">
-    <% end %>
+<div class="container">
+  <h2 class="my-5 pt-5"><%= @offer.title.capitalize %> - <%=@offer.location %></h2>
+
+
+    <div class="d-flex justify-content-around my-5">
+      <%@offer.picture_url.split(",").each do |picture| %>
+        <img class="img-product" src=<%=picture%>  alt="img-product">
+      <% end %>
+    </div>
   </div>
-  <div class="container">
+  <div class="container pb-5">
     <div class="d-flex justify-content-between">
       <div class="d-flex justify-content-between border-bottom border-primary pb-4" style="width: 700px">
           <div style="width: 600px" >

@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 pt-5 pb-5">
   <div class="icon-nav mt-4 mb-5 d-flex justify-content-between">
     <div class="d-flex align-items-start flex-column link">
         <%= link_to root_path(title: "snowboard"), class:"text-decoration-none text-center link active" do %>
@@ -62,7 +62,6 @@
     </div>
   </div>
   <div class="cards">
-
     <% @offers.each do |offer| %>
       <div class="card-offer-with-heart">
         <a href=""><i class="far fa-heart card-heart"></i></a>

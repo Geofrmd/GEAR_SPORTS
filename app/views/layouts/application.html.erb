@@ -13,16 +13,15 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag asset_path('gear-sport-favicon.png') %>
   </head>
 
   <body>
     <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <div class="container p-5">
       <%= yield %>
-    </div>
     <br>
     <br>
     <%= render "shared/footer" %>
+    <%= render "shared/flashes" %>
   </body>
 </html>
