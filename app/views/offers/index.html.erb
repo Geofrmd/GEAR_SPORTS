@@ -1,61 +1,61 @@
 <div class="container mt-5 pt-5 pb-5">
   <div class="icon-nav mt-4 mb-5 d-flex justify-content-between">
     <div class="d-flex align-items-start flex-column link">
-        <%= link_to root_path(title: "snowboard"), class:"text-decoration-none text-center link active" do %>
+        <%= link_to offers_path(sport_category: "snowboard"), class:"text-decoration-none text-center link active" do %>
           <i class="fa-solid fa-person-snowboarding mb-2"></i>
           <p>Snowboard</p>
         <% end %>
     </div>
     <div class="d-flex align-items-start flex-column">
-        <%= link_to root_path(title: "voile"), class:"text-decoration-none text-center link" do %>
+        <%= link_to offers_path(sport_category: "voile"), class:"text-decoration-none text-center link" do %>
           <i class="fa-sharp fa-solid fa-sailboat mb-2"></i>
           <p>Voile</p>
         <% end %>
     </div>
     <div class="d-flex align-items-start flex-column">
-        <%= link_to root_path(title: "paddle"), class:"text-decoration-none text-center link" do %>
+        <%= link_to offers_path(sport_category: "paddle"), class:"text-decoration-none text-center link" do %>
           <i class="fa-solid fa-water mb-2"></i>
           <p>Paddle</p>
         <% end %>
     </div>
     <div class="d-flex align-items-start flex-column">
-        <%= link_to root_path(title: "kitesurf"), class:"text-decoration-none text-center link" do %>
+        <%= link_to offers_path(sport_category: "kite"), class:"text-decoration-none text-center link" do %>
           <i class="fa-solid fa-person-walking mb-2"></i>
           <p>Kitesurf</p>
         <% end %>
     </div>
     <div class="d-flex align-items-start flex-column">
-        <%= link_to root_path(title: "Vélo"), class:"text-decoration-none text-center link" do %>
+        <%= link_to offers_path(sport_category: "Vélo"), class:"text-decoration-none text-center link" do %>
           <i class="fa-sharp fa-solid fa-bicycle mb-2"></i>
           <p>Vélo</p>
         <% end %>
     </div>
     <div class="d-flex align-items-start flex-column">
-        <%= link_to root_path(title: "skateboard"), class:"text-decoration-none text-center link" do %>
+        <%= link_to offers_path(sport_category: "skate"), class:"text-decoration-none text-center link" do %>
           <i class="fa-solid fa-person-snowboarding mb-2"></i>
           <p>Skateboard</p>
         <% end %>
     </div>
     <div class="d-flex align-items-start flex-column">
-        <%= link_to root_path(title: "ski"), class:"text-decoration-none text-center link" do %>
+        <%= link_to offers_path(sport_category: "ski"), class:"text-decoration-none text-center link" do %>
           <i class="fa-solid fa-person-skiing mb-2"></i>
           <p>Ski</p>
         <% end %>
     </div>
     <div class="d-flex align-items-start flex-column">
-        <%= link_to root_path(title: "roller"), class:"text-decoration-none text-center link" do %>
+        <%= link_to offers_path(sport_category: "roller"), class:"text-decoration-none text-center link" do %>
           <i class="fa-solid fa-person-snowboarding mb-2"></i>
           <p>Roller</p>
         <% end %>
     </div>
     <div class="d-flex align-items-start flex-column">
-        <%= link_to root_path(title: "tennis"), class:"text-decoration-none text-center link" do %>
+        <%= link_to offers_path(sport_category: "tennis"), class:"text-decoration-none text-center link" do %>
           <i class="fa-sharp fa-solid fa-table-tennis-paddle-ball mb-2"></i>
           <p>Tennis</p>
         <% end %>
     </div>
     <div class="d-flex align-items-start flex-column">
-        <%= link_to root_path(title: "surf"), class:"text-decoration-none text-center link" do %>
+        <%= link_to offers_path(sport_category: "planche de surf"), class:"text-decoration-none text-center link" do %>
           <i class="fa-solid fa-water-ladder mb-2"></i>
           <p>Surf</p>
         <% end %>
@@ -67,7 +67,7 @@
         <a href=""><i class="far fa-heart card-heart"></i></a>
         <%= link_to offer_path(offer), class:"text-decoration-none" do %>
           <div class="card-offer">
-              <%= image_tag (offer.picture_url.split(",").first) %>
+              <%= offer.picture_seed ? image_tag(offer.picture_seed.split(",").first) : cl_image_tag(offer.picture_url.first.key) %>
               <div class="card-offer-infos">
                 <div>
                   <h2><%= offer.title %></h2>

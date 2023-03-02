@@ -1,2 +1,14 @@
-<h1>Offers#new</h1>
-<p>Find me in app/views/offers/new.html.erb</p>
+<div class="container">
+  <div class="offer">
+    <h1>Make an offer</h1>
+    <%= simple_form_for (@offer) do |f| %>
+      <%= f.input :title, placeholder: "What do you rent?" %>
+      <%= f.input :description, placeholder: "Tell us more" %>
+      <%= f.input :price, placeholder: "What's your daily price?" %>
+      <%= f.input :location, placeholder: "What's your address?" %>
+      <%= f.input :picture_url, as: :file, input_html: { multiple: true }, placeholder: "Upload some pictures"  %>
+      <%= f.input :sport_category, collection: ["kitesurf", "paddle", "planche à voile", "planche de surf", "vélo", "roller", "ski", "snowboard", "skateboard", "raquette de tennis"]  %>
+      <%= f.submit "Add an offer", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
