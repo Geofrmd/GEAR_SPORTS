@@ -1,3 +1,7 @@
+.card-offer-with-heart {
+  position: relative;
+}
+
 .card-offer {
   overflow: hidden;
   background: $white;
@@ -56,8 +60,12 @@
 
 .card-heart {
   position: absolute;
-  right: 16px;
-  top: -20px;
+  right: -5px;
+  top: 16px;
   width: 40px;
   color: $terracotta;
+}
+
+a .card-heart:hover {
+  color: black;
 }
