@@ -7,8 +7,8 @@
       <div class="hello">
         <form class="d-flex me-5" role="search">
         <%= form_with url: offers_path, method: :get, class: "d-flex me-2 " do %>
-          <%= text_field_tag :query, params[:query], placeholder: "Votre recherche..." %>
-          <button class="btn btn-outline-success ms-2" type="submit">Search</button>
+          <%= text_field_tag :query, params[:query], class: "search-navbar", placeholder: "Votre recherche..." %>
+          <button class="btn btn-outline-success ms-2" type="submit" style="border-radius: 30px">Search</button>
         <% end %>
         </form>
       </div>
