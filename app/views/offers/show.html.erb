@@ -1,12 +1,16 @@
 
 <div class="container">
   <h2 class="my-5 pt-5"><%= @offer.title.capitalize %> - <%=@offer.location %></h2>
-
-
     <div class="d-flex justify-content-around my-5">
-      <%@offer.picture_url.split(",").each do |picture| %>
-        <img class="img-product" src=<%=picture%>  alt="img-product">
-      <% end %>
+          <% if @offer.picture_seed %>
+            <% @offer.picture_seed.split(",").each do |picture| %>
+              <img class="img-product" src=<%=picture%>  alt="img-product">
+            <% end %>
+          <% else %>
+            <% @offer.picture_url.each do |offer| %>
+              <%= cl_image_tag(offer.key, class: "img-product") %>
+            <% end %>
+          <% end %>
     </div>
   </div>
   <div class="container pb-5">
@@ -23,23 +27,42 @@
       </div>
       <div class ="form p-3">
           <h5 class="my-3 fw-bolder">Ajoutez des dates pour voir le prix</h5>
-          <%= form_with url: new_offer_booking_path(@offer), method: :get, class: "d-flex" do %>
+          <%= form_with url: new_offer_booking_path(@offer), method: :get, class: "" do %>
+            <h6>Start date:</h6>
             <%= date_field_tag :start_date,
               params[:start_date] || Date.today,
-              class: "form-control"
+              class: "form-control my-2"
             %>
+            <h6>End date:</h6>
             <%= date_field_tag :end_date,
               params[:end_date] || Date.today,
-              class: "form-control"
+              class: "form-control my-2"
             %>
-            <%= submit_tag "Vérifier la disponibilité", class: "btn btn-primary form-btn" %>
+            <%= submit_tag "Vérifier la disponibilité", class: "btn btn-primary form-btn mt-4" %>
           <% end %>
-
-
       </div>
     </div>
-    <div>
-      <h3 class="mt-4">Où se situe le matériel</h3>
+    <div class="" style="width: 700px">
+      <div class="d-flex justify-content-start align-items-end mb-3">
+          <h4 class="me-2"><i class="fa-solid fa-star mt-4"></i></h4>
+          <% sum = 0 %>
+          <%@offer.reviews.each do |review|%>
+              <% sum += review.rating %>
+            <% end %>
+          <h4><%= (@offer.reviews.count == 0) ? "" : (sum.fdiv(@offer.reviews.count)).round(1) %> · </h4>
+          <h4 class="ms-2"> <%= @offer.reviews.count%> commentaires</h4>
+      </div>
+          <% @offer.reviews.each do |review| %>
+          <div class="d-flex justify-content-start">
+            <% review.rating.times do %>
+              <p><i class="fa-solid fa-star text-warning"></i></p>
+            <% end %>
+          </div>
+            <p class="border-bottom pb-4"><%= review.content %></p>
+          <% end %>
+    </div>
+     <div>
+      <h3 class="mt-4 py-3">Où se situe le matériel</h3>
       <p><%= @offer.location %></p>
       <div style="width: 100%; height: 600px;"
       data-controller="map"

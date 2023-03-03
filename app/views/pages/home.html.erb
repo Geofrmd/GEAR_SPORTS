@@ -12,7 +12,7 @@
   <div class="cards">
     <% @offers.each do |offer| %>
       <div class="card-offer">
-        <%= image_tag (offer.picture_url.split(",").first) %>
+          <%= offer.picture_seed ? image_tag(offer.picture_seed.split(",").first) : cl_image_tag(offer.picture_url.first.key) %>
         <div class="card-offer-infos">
           <div>
             <h2><%= link_to offer.title.capitalize, offer_path(offer)  %></h2>

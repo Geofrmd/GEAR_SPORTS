@@ -1,5 +1,6 @@
-<div class="container p-5">
 
+<br>
+<br>
   <h3 class="mt-5 border-bottom"> Pending booking requests</h3>
     <% current_user.offers.each do |offer| %>
       <% offer.bookings.each do |booking| %>
@@ -21,40 +22,47 @@
         <% end %>
       <% end %>
     <% end %>
-
-  <h3 class="mt-5 border-bottom"> My offers - (<%=@my_offers.count%>)</h3>
-
-    <div class="cards mt-5">
-        <% @my_offers.each do |offer| %>
-              <div class="card-offer">
-                <%= image_tag (offer.picture_url.split(",").first) %>
-                <div class="card-offer-infos">
-                  <div>
-                    <h2><%= link_to offer.title, offer_path(offer)  %></h2>
-                    <h3><%= offer.location %></h3>
-                    <h4 class="card-offer-pricing"><%= offer.price %> € / day</h4>
-                    <i class="far fa-heart card-heart"></i>
-                  </div>
-                </div>
-              </div class="mb-5">
-        <%end %>
+    
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-end  pb-3 border-bottom">
+      <h3 class="mt-5"> My offers - (<%=@my_offers.count%>)</h3>
+      <%= link_to "Create an offer", new_offer_path, class:"btn btn-primary"%>
   </div>
-
-  <h3 class="mt-5 border-bottom">My bookings </h3>
-    <div class="cards mt-5">
-  <% @bookings.each do |booking| %>
-        <div class="card-offer">
-          <%= image_tag (booking.offer.picture_url.split(",").first) %>
+  <div class="card-container mt-5">
+    <% @my_offers.each do |offer| %>
+      <div class="card-scroll">
+        <div class="card-offer effet mb-5">
+          <%= offer.picture_seed ? image_tag(offer.picture_seed.split(",").first) : cl_image_tag(offer.picture_url.first.key) %>
           <div class="card-offer-infos">
-            <div>
+            <h2><%= link_to offer.title, offer_path(offer)  %></h2>
+            <h3><%= offer.location %></h3>
+            <h4 class="card-offer-pricing"><%= offer.price %> € / day</h4>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="scroll-button my-offers-left-button">&#8249;</button>
+  <button class="scroll-button my-offers-right-button">&#8250;</button>
+</div>
+
+<div class="container my-5">
+  <h3 class="mt-5 pb-3 border-bottom">My bookings - (<%=@bookings.count%>) </h3>
+  <div class="card-container mt-5">
+
+      <% @bookings.each do |booking| %>
+        <div class="card-scroll">
+          <div class="card-offer effet">
+            <%= booking.offer.picture_seed ? image_tag(booking.offer.picture_seed.split(",").first) : cl_image_tag(booking.offer.picture_url.first.key) %>
+            <div class="card-offer-infos">
+
               <h2><%= booking.offer.title %></h2>
               <h3><%= booking.offer.location %></h3>
-              <% %>
               <% length = (booking.end_date - booking.start_date).to_i %>
               <% total = length * booking.offer.price %>
-              <div><%= total %> €</div>
-              <i class="far fa-heart card-heart"></i>
-              <% if booking.status == "pending" %>
+              <div class="d-flex justify-content-between align-items-end">
+                  <div><%= total %> €</div>
+                   <% if booking.status == "pending" %>
               <% then %>
                 <div class="btn-status btn-pending">
                   <h5>Pending confirmation</h5>
@@ -68,9 +76,14 @@
                   <h5>Booking declined</h5>
                 </div>
               <% end %>
+                  <%= link_to "Make a review", new_booking_review_path(booking), class:"btn btn-primary btn-sm", id: "btn-review"%>
+              </div>
+
             </div>
           </div>
-        </div class="mb-5">
-  <%end %>
+        </div>
+      <% end %>
   </div>
+  <button class="scroll-button my-bookings-left-button">&#8249;</button>
+  <button class="scroll-button my-bookings-right-button">&#8250;</button>
 </div>

@@ -31,7 +31,7 @@
 
       <div class="d-flex justify-content-start pb-2 m-4">
         <div style="width: 150px">
-          <%= image_tag (@offer.picture_url.split(",").first), style:"width: 150px"%>
+            <%= @offer.picture_seed ? (image_tag(@offer.picture_seed.split(",").first, style: "width: 150px")) : (cl_image_tag(@offer.picture_url.first.key, style: "width: 150px")) %>
         </div>
         <div class="container" style="margin: auto">
           <h5><%= @offer.title %></h5>
