@@ -1,6 +1,7 @@
 
 <br>
 <br>
+<div class="container mt-4">
   <h3 class="mt-5 border-bottom"> Pending booking requests</h3>
     <% current_user.offers.each do |offer| %>
       <% offer.bookings.each do |booking| %>
@@ -23,7 +24,7 @@
       <% end %>
     <% end %>
 
-<div class="container mt-4">
+
   <div class="d-flex justify-content-between align-items-end  pb-3 border-bottom">
       <h3 class="mt-5"> My offers - (<%=@my_offers.count%>)</h3>
       <%= link_to "Create an offer", new_offer_path, class:"btn btn-primary"%>
