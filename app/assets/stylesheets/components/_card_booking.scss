@@ -7,13 +7,15 @@
   align-items: center;
   margin: 6px;
   position: relative;
+  border-radius: 4px;
 }
 
 .card-booking > img {
   height: 100%;
   width: 60px;
   object-fit: cover;
-  border-radius: 3px;
+  // margin-left: 10px;
+  // border-radius: 3px;
 }
 
 .card-booking h2 {

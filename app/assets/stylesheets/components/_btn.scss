@@ -15,6 +15,14 @@
   height: 33px;
 }
 
+#btn-review {
+  font-size: 14px;
+  font-weight: 400;
+  border: solid 1px $vert;
+  color: $vert;
+  background-color: $white;
+  opacity: 1;
+}
 .btn-status h5 {
   padding: 0px;
   margin: 0px;
@@ -35,11 +43,11 @@
 }
 
 .btn-pending > h5 {
-  color: $red;
+  color: black;
 }
 
 .btn-declined {
-  background-color: $noir;
+  background-color: $terracotta;
 }
 
 .btn-declined > h5 {
@@ -49,29 +57,29 @@
 .btn-confirm {
   position: absolute;
   right: 100px;
-  border-radius: 4px;
-  padding: 3px;
-  background-color: $terracotta;
+  // border-radius: 4px;
+  // padding: 3px;
+  // background-color: $terracotta;
 }
 
-.btn-confirm > h5 {
-  color: $white;
-  font-size: 16px;
-  padding: 8;
-  margin: 0;
-}
+// .btn-confirm > h5 {
+//   color: $white;
+//   font-size: 16px;
+//   padding: 8;
+//   margin: 0;
+// }
 
 .btn-decline {
   position: absolute;
   right: 16px;
-  border-radius: 7px;
-  padding: 3px;
-  background-color: $vert;
+  // border-radius: 7px;
+  // padding: 3px;
+  // background-color: $vert;
 }
 
-.btn-decline > h5 {
-  color: $white;
-  font-size: 16px;
-  padding: 8;
-  margin: 0;
-}
+// .btn-decline > h5 {
+//   color: $white;
+//   font-size: 16px;
+//   padding: 8;
+//   margin: 0;
+// }
