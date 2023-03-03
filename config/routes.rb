@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :offers, only: %i[index new show create] do
-    resources :bookings, only: %i[create show new]
+    resources :bookings, only: %i[create show new update]
   end
   resources :bookings, only: %i[]  do
     resources :reviews, only: %i[new create]

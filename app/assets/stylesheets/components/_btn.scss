@@ -1,0 +1,68 @@
+.btn-status {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 7px;
+  padding: 6px;
+}
+
+.btn-status h5 {
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-confirmed {
+  background-color: $vert;
+}
+
+.btn-confirmed > h5 {
+  color: $white;
+}
+
+.btn-pending {
+  background-color: $beige;
+}
+
+.btn-pending > h5 {
+  color: $red;
+}
+
+.btn-declined {
+  background-color: $noir;
+}
+
+.btn-declined > h5 {
+  color: $white;
+}
+
+.btn-confirm {
+  position: absolute;
+  right: 100px;
+  border-radius: 7px;
+  padding: 3px;
+  background-color: $terracotta;
+}
+
+.btn-confirm > h5 {
+  color: $white;
+  font-size: 16px;
+  padding: 8;
+  margin: 0;
+}
+
+.btn-decline {
+  position: absolute;
+  right: 16px;
+  border-radius: 7px;
+  padding: 3px;
+  background-color: $vert;
+}
+
+.btn-decline > h5 {
+  color: $white;
+  font-size: 16px;
+  padding: 8;
+  margin: 0;
+}
