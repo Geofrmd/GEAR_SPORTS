@@ -55,12 +55,10 @@
           <div class="card-offer effet">
             <%= booking.offer.picture_seed ? image_tag(booking.offer.picture_seed.split(",").first) : cl_image_tag(booking.offer.picture_url.first.key) %>
             <div class="card-offer-infos">
-
               <h2><%= booking.offer.title %></h2>
               <h3><%= booking.offer.location %></h3>
               <% length = (booking.end_date - booking.start_date).to_i %>
               <% total = length * booking.offer.price %>
-              <div class="d-flex justify-content-between align-items-end">
                   <div><%= total %> €</div>
                    <% if booking.status == "pending" %>
               <% then %>
@@ -71,14 +69,12 @@
                 <div class="btn-status btn-confirmed">
                   <h5>Booking confirmed</h5>
                 </div>
+                <%= link_to "Give a review", new_booking_review_path(booking), class:"btn btn-primary btn-sm btn-review", id: "btn-review"%>
               <% else %>
                 <div class="btn-status btn-declined">
                   <h5>Booking declined</h5>
                 </div>
               <% end %>
-                  <%= link_to "Make a review", new_booking_review_path(booking), class:"btn btn-primary btn-sm", id: "btn-review"%>
-              </div>
-
             </div>
           </div>
         </div>
