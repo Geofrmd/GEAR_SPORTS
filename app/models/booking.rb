@@ -4,6 +4,6 @@ class Booking < ApplicationRecord
   has_many :reviews, dependent: :destroy
   validates :start_date, presence: true
   validates :end_date, presence: true
-  STATUS = ["pending", "confirmed"]
-  validates :status, presence: true, inclusion: { in: STATUS }
+  STATUS = ["pending", "confirmed", "declined"]
+  validates :status, inclusion: { in: STATUS }
 end

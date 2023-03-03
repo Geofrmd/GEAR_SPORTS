@@ -29,6 +29,14 @@
   color: $red;
 }
 
+.btn-declined {
+  background-color: $noir;
+}
+
+.btn-declined > h5 {
+  color: $white;
+}
+
 .btn-confirm {
   position: absolute;
   right: 100px;

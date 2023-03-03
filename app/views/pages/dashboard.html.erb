@@ -1,20 +1,25 @@
 <div class="container p-5">
 
-  <h3 class="mt-5 border-bottom"> My booking requests</h3>
-    <% @bookings.each do |booking| %>
-      <div class="card-booking">
-        <%= image_tag (booking.offer.picture_url.split(",").first)%>
-        <div class="card-booking-infos">
-          <h2><%=booking.offer.title%></h2>
-          <p><%=booking.start_date%> - <%=booking.end_date%></p>
-        </div>
-        <div class="btn-confirm">
-          <h5>ACCEPT</h5>
-        </div>
-        <div class="btn-decline">
-          <h5>DECLINE</h5>
-        </div>
-      </div>
+  <h3 class="mt-5 border-bottom"> Pending booking requests</h3>
+    <% current_user.offers.each do |offer| %>
+      <% offer.bookings.each do |booking| %>
+        <% if booking.status == "pending" %>
+        <% then %>
+          <div class="card-booking">
+            <%= image_tag (booking.offer.picture_url.split(",").first)%>
+            <div class="card-booking-infos">
+              <h2><%=booking.offer.title%></h2>
+              <p><%=booking.start_date%> - <%=booking.end_date%></p>
+            </div>
+            <div class="btn-confirm">
+              <h5><%= link_to "ACCEPT", offer_booking_path(offer, booking, booking: { status: "confirmed" }), data:{turbo_method: :patch}, class:"text-decoration-none" %></h5>
+            </div>
+            <div class="btn-decline">
+              <h5><%= link_to "DECLINE", offer_booking_path(offer, booking, booking: { status: "declined" }), data:{turbo_method: :patch}, class:"text-decoration-none" %></h5>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
 
   <h3 class="mt-5 border-bottom"> My offers - (<%=@my_offers.count%>)</h3>
@@ -49,14 +54,18 @@
               <% total = length * booking.offer.price %>
               <div><%= total %> €</div>
               <i class="far fa-heart card-heart"></i>
-              <% if booking.status = "pending" %>
+              <% if booking.status == "pending" %>
               <% then %>
                 <div class="btn-status btn-pending">
                   <h5>Pending confirmation</h5>
                 </div>
-              <% else %>
+              <% elsif booking.status == "confirmed" %>
                 <div class="btn-status btn-confirmed">
                   <h5>Booking confirmed</h5>
+                </div>
+              <% else %>
+                <div class="btn-status btn-declined">
+                  <h5>Booking declined</h5>
                 </div>
               <% end %>
             </div>
