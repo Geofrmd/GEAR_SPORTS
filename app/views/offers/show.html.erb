@@ -42,8 +42,27 @@
           <% end %>
       </div>
     </div>
-    <div>
-      <h3 class="mt-4">Où se situe le matériel</h3>
+    <div class="" style="width: 700px">
+      <div class="d-flex justify-content-start align-items-end mb-3">
+          <h4 class="me-2"><i class="fa-solid fa-star mt-4"></i></h4>
+          <% sum = 0 %>
+          <%@offer.reviews.each do |review|%>
+              <% sum += review.rating %>
+            <% end %>
+          <h4><%= (@offer.reviews.count == 0) ? "" : (sum.fdiv(@offer.reviews.count)).round(1) %> · </h4>
+          <h4 class="ms-2"> <%= @offer.reviews.count%> commentaires</h4>
+      </div>
+          <% @offer.reviews.each do |review| %>
+          <div class="d-flex justify-content-start">
+            <% review.rating.times do %>
+              <p><i class="fa-solid fa-star text-warning"></i></p>
+            <% end %>
+          </div>
+            <p class="border-bottom pb-4"><%= review.content %></p>
+          <% end %>
+    </div>
+     <div>
+      <h3 class="mt-4 py-3">Où se situe le matériel</h3>
       <p><%= @offer.location %></p>
       <div style="width: 100%; height: 600px;"
       data-controller="map"
