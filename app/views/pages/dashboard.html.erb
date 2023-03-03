@@ -1,29 +1,30 @@
 
 <br>
 <br>
-  <h3 class="mt-5 border-bottom"> Pending booking requests</h3>
+<div class="container mt-4">
+  <h3 class="mt-5 border-bottom pb-3"> Pending booking requests</h3>
     <% current_user.offers.each do |offer| %>
       <% offer.bookings.each do |booking| %>
         <% if booking.status == "pending" %>
         <% then %>
-          <div class="card-booking">
+          <div class="card-booking mt-3">
             <%= offer.picture_seed ? image_tag(offer.picture_seed.split(",").first) : cl_image_tag(offer.picture_url.first.key) %>
             <div class="card-booking-infos">
               <h2><%=booking.offer.title%></h2>
-              <p><%=booking.start_date%> - <%=booking.end_date%></p>
+              <p>du <%=booking.start_date%> au <%=booking.end_date%></p>
             </div>
             <div class="btn-confirm">
-              <h5><%= link_to "ACCEPT", offer_booking_path(offer, booking, booking: { status: "confirmed" }), data:{turbo_method: :patch}, class:"text-decoration-none" %></h5>
+              <h5><%= link_to "Accept", offer_booking_path(offer, booking, booking: { status: "confirmed" }), data:{turbo_method: :patch}, class:"text-decoration-none btn btn-primary btn-sm", id:"btn-reviews" %></h5>
             </div>
             <div class="btn-decline">
-              <h5><%= link_to "DECLINE", offer_booking_path(offer, booking, booking: { status: "declined" }), data:{turbo_method: :patch}, class:"text-decoration-none" %></h5>
+              <h5><%= link_to "Decline", offer_booking_path(offer, booking, booking: { status: "declined" }), data:{turbo_method: :patch}, class:"text-decoration-none btn btn-success btn-sm" %></h5>
             </div>
           </div>
         <% end %>
       <% end %>
     <% end %>
 
-<div class="container mt-4">
+
   <div class="d-flex justify-content-between align-items-end  pb-3 border-bottom">
       <h3 class="mt-5"> My offers - (<%=@my_offers.count%>)</h3>
       <%= link_to "Create an offer", new_offer_path, class:"btn btn-primary"%>
@@ -42,8 +43,6 @@
       </div>
     <% end %>
   </div>
-  <button class="scroll-button my-offers-left-button">&#8249;</button>
-  <button class="scroll-button my-offers-right-button">&#8250;</button>
 </div>
 
 <div class="container my-5">
@@ -69,7 +68,7 @@
                 <div class="btn-status btn-confirmed">
                   <h5>Booking confirmed</h5>
                 </div>
-                <%= link_to "Give a review", new_booking_review_path(booking), class:"btn btn-primary btn-sm btn-review", id: "btn-review"%>
+                <%= link_to "Give a review", new_booking_review_path(booking), class:"btn btn-sm btn-review", id: "btn-review"%>
               <% else %>
                 <div class="btn-status btn-declined">
                   <h5>Booking declined</h5>
@@ -80,6 +79,4 @@
         </div>
       <% end %>
   </div>
-  <button class="scroll-button my-bookings-left-button">&#8249;</button>
-  <button class="scroll-button my-bookings-right-button">&#8250;</button>
 </div>
