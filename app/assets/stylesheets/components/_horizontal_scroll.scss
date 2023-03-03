@@ -1,0 +1,66 @@
+.card-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.card-scroll {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: top;
+  width: 300px; /* Largeur fixe pour chaque carte */
+}
+
+.effet {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.effet:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.scroll-button {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: transparent;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.my-offers-left-button {
+  left: 21px;
+  top: 344px;
+}
+
+.my-offers-right-button {
+  right: 21px;
+  top: 344px;
+}
+
+.my-bookings-left-button {
+  left: 21px;
+  top: 832px;
+}
+
+.my-bookings-right-button {
+  right: 21px;
+  top: 832px;
+}
+
+.scroll-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+#btn-review {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+
+}
