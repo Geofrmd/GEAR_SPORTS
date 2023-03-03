@@ -7,7 +7,7 @@
         <% if booking.status == "pending" %>
         <% then %>
           <div class="card-booking">
-            <%= image_tag (booking.offer.picture_url.split(",").first)%>
+            <%= offer.picture_seed ? image_tag(offer.picture_seed.split(",").first) : cl_image_tag(offer.picture_url.first.key) %>
             <div class="card-booking-infos">
               <h2><%=booking.offer.title%></h2>
               <p><%=booking.start_date%> - <%=booking.end_date%></p>
@@ -22,7 +22,7 @@
         <% end %>
       <% end %>
     <% end %>
-    
+
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-end  pb-3 border-bottom">
       <h3 class="mt-5"> My offers - (<%=@my_offers.count%>)</h3>
